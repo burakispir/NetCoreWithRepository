@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace NetCoreWithRepository.API.Controllers
 {
+    [Produces("application/json")]
     [Route("api/categories")]
-    [ApiController]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService categoryService;
@@ -38,7 +38,7 @@ namespace NetCoreWithRepository.API.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(int))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, Description = "No category found for requested filter.")]
         public async Task<IActionResult> Get(int id)

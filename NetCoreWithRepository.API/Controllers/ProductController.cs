@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NetCoreWithRepository.Data.Model.Request;
 using NetCoreWithRepository.Service;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace NetCoreWithRepository.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Produces("application/json")]
+    [Route("api/products")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService ProductService;
@@ -42,7 +38,7 @@ namespace NetCoreWithRepository.API.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(int))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, Description = "No Product found for requested filter.")]
         public async Task<IActionResult> Get(int id)
