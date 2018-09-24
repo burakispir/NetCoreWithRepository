@@ -26,6 +26,7 @@ namespace NetCoreWithRepository.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //Injection
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
             //Data Context
             string connection = "Server=BISPIR\\SQLEXPRESS;Database=CommentDB;Trusted_Connection=True;";
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connection,b=>b.MigrationsAssembly("NetCoreWithRepository.API")));

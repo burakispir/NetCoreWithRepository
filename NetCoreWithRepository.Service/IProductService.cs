@@ -10,9 +10,9 @@ namespace NetCoreWithRepository.Service
 {
     public interface IProductService
     {
-        Task<BaseResponseModel<List<Category>>> List(Expression<Func<Category, bool>> filter, int take);
-        Task<BaseResponseModel<Category>> Get(Expression<Func<Category, bool>> filter);
-        Task<BaseResponseModel<Category>> Get(object Id);
+        Task<BaseResponseModel<List<Product>>> List(Expression<Func<Product, bool>> filter, int take);
+        Task<BaseResponseModel<Product>> Get(Expression<Func<Product, bool>> filter);
+        Task<BaseResponseModel<Product>> Get(object Id);
         Task<BaseResponseModel<bool>> Create(ProductRequestModel model);
         Task<BaseResponseModel<bool>> Update(ProductRequestModel model);
         Task<BaseResponseModel<bool>> Delete(int Id);

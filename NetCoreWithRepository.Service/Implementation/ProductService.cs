@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NetCoreWithRepository.Service.Implementation
 {
-    public class ProductService
+    public class ProductService:IProductService
     {
         private readonly BaseRepository<Product> repository = null;
         public ProductService(DbContextOptions<DataContext> options) : base()
